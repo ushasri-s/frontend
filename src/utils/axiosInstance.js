@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: `${process.env.REACT_APP_API_URL}`,
 });
 
 // Request interceptor (optional for adding auth header)
@@ -29,7 +29,7 @@ instance.interceptors.response.use(
     ) {
       originalRequest._retry = true;
       try {
-        const response = await axios.post("http://localhost:8000/api/token", {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/token`, {
           refreshToken: localStorage.getItem("refreshToken"),
         });
 

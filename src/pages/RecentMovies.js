@@ -8,7 +8,7 @@ function RecentMovies() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/movies/recent")
+      .get(`${process.env.REACT_APP_API_URL}/movies/recent`)
       .then((res) => setMovies(res.data))
       .catch((err) => console.error("Error fetching recent movies:", err));
   }, []);

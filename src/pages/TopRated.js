@@ -8,7 +8,7 @@ function TopRated() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/movies/top-rated").then((res) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/movies/top-rated`).then((res) => {
       setMovies(res.data);
     });
   }, []);

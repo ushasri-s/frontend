@@ -12,7 +12,7 @@ function ReviewPage() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/movies/${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/movies/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched movie:", data); // ✅ See what’s returned
@@ -28,7 +28,7 @@ function ReviewPage() {
     if (!token) return alert("Please login first.");
 
     try {
-      const res = await fetch(`http://localhost:8000/api/movies/${id}/reviews`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/movies/${id}/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

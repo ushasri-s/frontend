@@ -22,10 +22,10 @@ function WriteReview({ movieId }) {
 
     try {
       await axios.post(
-        `http://localhost:8000/api/movies/${movieId}/reviews`,
+        `${process.env.REACT_APP_API_URL}/movies/${movieId}/reviews`,
         {
           rating: Number(rating),
-          comment: comment.trim(), // ✅ Must use 'comment' to match backend
+          comment: comment.trim(), 
         },
         {
           headers: {

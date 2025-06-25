@@ -8,7 +8,7 @@ function LowRated() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/movies/low-rated").then((res) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/low-rated`).then((res) => {
       setMovies(res.data);
     });
   }, []);

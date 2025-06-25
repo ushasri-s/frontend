@@ -11,7 +11,7 @@ function Search() {
     const delayDebounce = setTimeout(() => {
       if (query) {
         axios
-          .get(`http://localhost:8000/api/movies/search/${query}`)
+          .get(`${process.env.REACT_APP_API_URL}/movies/search/${query}`)
           .then((res) => {
             setResults(res.data);
           });

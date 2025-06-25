@@ -9,7 +9,7 @@ function Filter() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/movies/filter/${rating}`)
+      .get(`${process.env.REACT_APP_API_URL}/movies/filter/${rating}`)
       .then((res) => setMovies(res.data))
       .catch((err) => console.error("❌ Filter fetch error:", err));
   }, [rating]);

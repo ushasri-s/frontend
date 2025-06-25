@@ -8,7 +8,7 @@ function Home() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/movies").then((res) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/movies`).then((res) => {
           console.log("🔍 Movie data from backend:", res.data);  // ADD THIS
 
       setMovies(res.data);

@@ -5,7 +5,7 @@ function ViewReviews({ movieId }) {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/movies/${movieId}/reviews`)
+    fetch(`${process.env.REACT_APP_API_URL}/movies/${movieId}/reviews`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
